@@ -3,7 +3,7 @@ function extendDeep(parent,child){
 		toStr = Object.prototype.toString,
 		astr = "[object Array]";
 
-	//child = child || {};
+	child = child || {};
 
 	for (i in parent){
 		if (parent.hasOwnProperty(i)){
@@ -18,22 +18,38 @@ function extendDeep(parent,child){
 	return child;
 }
 
-
-
-function Airplane(cost, weight){
-	this.cost = 0;
-	this.weight = 0;
+var airplane = {
+	cost: 0,
+	weight: 0,
+	model: "unknown", 
+	maxSpeed: 0
 }
 
-var airplane = new Airplane();
-console.log(airplane);
+var airbus = extendDeep(airplane);
+airbus.company = "Airbus corp."
 
-var x = extendDeep(Airplane, Airbus);
-function Airbus(model) {
-	this.model = model || 0;
+var airbusA230 = extendDeep(airbus);
+airbusA230.model = "‎Airbus A380"
+
+var boeing = extendDeep(airplane);
+boeing.company = "Boeing corp."
+
+var boeingMercury = extendDeep(boeing);
+boeingMercury.model = "E-6 Mercury";
+boeingMercury.maxSpeed = 870;
+
+var boeingStratojet = extendDeep(boeing);
+boeingStratojet.model = "B-47 Stratojet";
+boeingStratojet.maxSpeed = 978;
+
+
+var airport = {
+	airplains : []
 }
 
+airport.airplains.push(boeingMercury);
+airport.airplains.push(boeingStratojet);
+airport.airplains.push(airbusA230);
 
-var airbusik = new Airbus();
-
-console.log(x.cost);
+console.log("Airport consist of ");
+console.log(airport.airplains);
