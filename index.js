@@ -29,7 +29,8 @@ var airbus = extendDeep(airplane);
 airbus.company = "Airbus corp."
 
 var airbusA230 = extendDeep(airbus);
-airbusA230.model = "‎Airbus A380"
+airbusA230.model = "‎Airbus A230";
+airbusA230.weight = 68000;
 
 var boeing = extendDeep(airplane);
 boeing.company = "Boeing corp."
